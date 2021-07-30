@@ -372,12 +372,36 @@ class _PostTile extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        post.title,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: theme.textTheme.bodyText2
-                            ?.copyWith(color: Colors.black),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Flexible(
+                            child: Text(
+                              post.title,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: theme.textTheme.bodyText2
+                                  ?.copyWith(color: Colors.black),
+                            ),
+                          ),
+                          // Expanded(
+                          //   child: Container(),
+                          // ),
+                          Container(
+                            child: Row(
+                              children: [
+                                Text('${post.commentCount}'),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Icon(
+                                  Icons.chat_outlined,
+                                  size: 18,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                       Container(
                         child: Text(

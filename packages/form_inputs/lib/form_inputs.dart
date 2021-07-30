@@ -8,3 +8,4 @@ export './src/first_name.dart';
 export './src/student_name.dart';
 export './src/token.dart';
 export './src/events/events.dart';
+export './src/posts/post.dart';

@@ -19,10 +19,12 @@ dependencies:
     path: packages/event_repository
   message_repository:
     path: packages/message_repository
+  post_repository:
+    path: packages/post_repository
   bloc: ^7.0.0
   equatable: ^2.0.0
   flow_builder: ^0.0.2
-  flutter_bloc: ^7.0.0
+  flutter_bloc: ^7.1.0
   font_awesome_flutter: ^9.0.0
   form_inputs:
     path: packages/form_inputs
@@ -36,7 +38,7 @@ dependencies:
 
   bubble: ^1.2.1
   intl: ^0.17.0
-  flutter_local_notifications: ^6.0.0
+  flutter_local_notifications: ^8.0.0
   grouped_list: ^4.1.0
 
 dev_dependencies:

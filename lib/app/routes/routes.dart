@@ -7,6 +7,10 @@ import 'package:school_notifier/messages/conversations/conversations.dart';
 import 'package:school_notifier/messages/directory/view/directory_page.dart';
 import 'package:school_notifier/messages/message.dart';
 import 'package:school_notifier/navigation/navigation.dart';
+import 'package:school_notifier/posts/posts/creation/view/post_create_form.dart';
+import 'package:school_notifier/posts/posts/creation/view/post_create_page.dart';
+import 'package:school_notifier/posts/posts/view/post_create.dart';
+import 'package:school_notifier/posts/posts/view/posts_page.dart';
 import 'package:school_notifier/profile/profile.dart';
 // import 'package:school_notifier/profile_setup/view/new_user_setup_page.dart';
 import 'package:school_notifier/authentication/authentication.dart';
@@ -31,5 +35,8 @@ Map<String, WidgetBuilder> allRoutes = <String, WidgetBuilder>{
   SubscriptionPage.routeName: (context) => SubscriptionPage(),
   CalendarAddEventPage.routeName: (context) => CalendarAddEventPage(),
   CalendarPage.routeName: (context) => CalendarPage(),
+  PostPage.routeName: (context) => PostPage(),
+  PostCreatePage.routeName: (context) => PostCreatePage(),
+  PostCreateForm.routeName: (context) => PostCreateForm(),
   // NavigationPage.routeName: (context) => NavigationPage(),
 };

@@ -22,7 +22,14 @@ class PostRepository {
     // WriteBatch batch = FirebaseFirestore.instance.batch();
     final docRef = _commentCollection.doc();
     Comment commentWithNewId = comment.copyWith(id: docRef.id);
-    docRef.set(commentWithNewId.toEntity().toDocument());
+    await docRef.set(commentWithNewId.toEntity().toDocument());
+    try {
+      await _postCollection
+          .doc(comment.relatedPost)
+          .update({'commentCount': FieldValue.increment(1)});
+    } catch (e) {
+      print(e);
+    }
   }
 
   Future<void> incrementPostCommentCounter(String postId) async {

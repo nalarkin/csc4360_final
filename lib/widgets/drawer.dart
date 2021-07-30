@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:school_notifier/authentication/authentication.dart';
 import 'package:school_notifier/home/view/home_page.dart';
 import 'package:school_notifier/messages/conversations/view/conversation_page.dart';
+import 'package:school_notifier/posts/posts.dart';
 import 'package:school_notifier/profile/view/profile_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:school_notifier/subscriptions/subscriptions.dart';
@@ -87,6 +88,16 @@ Widget customDrawer(BuildContext context) {
             onTap: () {
               Navigator.pop(context);
               Navigator.pushNamed(context, HomePage.routeName);
+            }),
+        ListTile(
+            title: Text('Discussion Page'),
+            leading: Icon(
+              Icons.chat,
+              color: Colors.black,
+            ),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, PostPage.routeName);
             }),
         ListTile(
             title: Text('Home'),

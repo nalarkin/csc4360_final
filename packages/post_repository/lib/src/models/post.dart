@@ -128,6 +128,14 @@ class Post extends Equatable {
     }
     return null;
   }
+  static PostFlair? longStringToPostFlair(String possibleFlair) {
+    for (final role in PostFlair.values) {
+      if (role.toString() == "$possibleFlair") {
+        return role;
+      }
+    }
+    return null;
+  }
 
   static String? postFlairToString(PostFlair? flair) {
     if (flair == null) return null;
