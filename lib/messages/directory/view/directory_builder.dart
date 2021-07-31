@@ -98,7 +98,7 @@ GestureDetector _BuildUserTile(
   return GestureDetector(
       onTap: () {
         // debugDumpApp();
-        print(_currUser);
+        // print(_currUser);
         Message blankMessage = Message(
             id: 'dummyid',
             conversationId: Message.getConvoID(_currUser.id, user.id),

@@ -156,12 +156,12 @@ class _DatePicker extends StatelessWidget {
                           initialDate: DateTime.now(),
                           firstDate: DateTime.now(),
                           lastDate: DateTime.utc(2030, 1, 1));
-                      print(selectedDate.toString());
+                      // print(selectedDate.toString());
                       context
                           .read<CalendarCubit>()
                           .eventSelectedDateChanged(selectedDate);
 
-                      print(formatCalendarDate(selectedDate ?? DateTime.now()));
+                      // print(formatCalendarDate(selectedDate ?? DateTime.now()));
                     },
                     child: state.eventSelectedDay != null
                         ? Text(
@@ -281,8 +281,8 @@ class _SubscriptionIdInput extends StatelessWidget {
   Widget build(BuildContext context) {
     Map<String, dynamic> classes =
         context.watch<ProfileBloc>().state.user.classes ?? {};
-    print('${classes}');
-    print('${classes.keys}');
+    // print('${classes}');
+    // print('${classes.keys}');
     return BlocBuilder<CalendarCubit, CalendarState>(
       buildWhen: (previous, current) =>
           previous.eventSubscriptionList != current.eventSubscriptionList,
@@ -291,7 +291,7 @@ class _SubscriptionIdInput extends StatelessWidget {
             state.eventSubscriptionList.contains('test3GGiv2Bv3LpUr8qb');
         return InkWell(
           onTap: () {
-            print('you pressed the inkwell!');
+            // print('you pressed the inkwell!');
             context
                 .read<CalendarCubit>()
                 .toggleSubscription('test3GGiv2Bv3LpUr8qb');
@@ -304,7 +304,7 @@ class _SubscriptionIdInput extends StatelessWidget {
                 Checkbox(
                   value: value,
                   onChanged: (bool? newValue) {
-                    print('you pressed the checkbox!');
+                    // print('you pressed the checkbox!');
                   },
                 ),
               ],

@@ -56,3 +56,7 @@ If I had extra time, I would have added a couple extra bells and whistles. This 
 * install the plugins by doing `flutter get <addon>`, this was how I installed my addons. So it could have changed some config code somewhere in the project that I was unaware of.
 * Ensure you are only trying to run the android version of the app, it is the only supported platform.
 
+## Debug Page
+
+If you want to gain access to the debug page, uncomment the commented ListTile in the `drawer.dart` file with the path `lib/widgets/drawer.dart`
+

@@ -22,7 +22,7 @@ class MessagePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final convo = ModalRoute.of(context)!.settings.arguments as Conversation;
-    print('MESSAGE PAGE SCREEN: $convo');
+    // print('MESSAGE PAGE SCREEN: $convo');
     return Scaffold(
         appBar: AppBar(
           title: Text(_getOtherParticipantNames(

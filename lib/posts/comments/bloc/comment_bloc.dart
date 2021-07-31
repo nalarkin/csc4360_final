@@ -65,8 +65,8 @@ class CommentBloc extends Bloc<CommentEvent, CommentState> {
   }
 
   CommentState _mapCommentLoadedToState(CommentLoaded event) {
-    print('new wave of comments loaded');
-    print(event.toString());
+    // print('new wave of comments loaded');
+    // print(event.toString());
     if (event.comments.length > 0) {
       return CommentState.success(event.comments, state.post);
     } else {

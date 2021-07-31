@@ -36,8 +36,8 @@ class CalendarCubit extends Cubit<CalendarState> {
 
   void eventTimeStartChanged(String value) {
     final eventTimeStart = EventTimeStart.dirty(value);
-    print('value inside eventTimeStartChanged = $value');
-    print('dirty EventTimeStart = $eventTimeStart');
+    // print('value inside eventTimeStartChanged = $value');
+    // print('dirty EventTimeStart = $eventTimeStart');
 
     final eventDayStatus = Formz.validate([state.eventDay]);
     final eventDescription = Formz.validate([state.eventDescription]);
@@ -203,8 +203,8 @@ class CalendarCubit extends Cubit<CalendarState> {
     final timeStart = value == null
         ? EventTimeStart.dirty('')
         : EventTimeStart.dirty('${formatTimeOfDay(value)}');
-    print('$value');
-    if (value != null) print('${formatTimeOfDay(value)}');
+    // print('$value');
+    // if (value != null) print('${formatTimeOfDay(value)}');
     emit(state.copyWith(
       eventTimeStart: timeStart,
       status: Formz.validate([
@@ -309,14 +309,14 @@ class CalendarCubit extends Cubit<CalendarState> {
 
   void toggleSubscription(String value) {
     var _newList = state.eventSubscriptionList.toList();
-    print('list before change = $_newList');
+    // print('list before change = $_newList');
     if (_newList.contains(value)) {
       _newList.remove(value);
     } else {
       _newList.add(value);
     }
-    print('Newly created sub list is $_newList');
-    print('Value is  $value');
+    // print('Newly created sub list is $_newList');
+    // print('Value is  $value');
     emit(state.copyWith(
       eventSubscriptionList: _newList,
       status: Formz.validate([

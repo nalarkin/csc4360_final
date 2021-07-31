@@ -28,8 +28,8 @@ class PostBuilder extends StatelessWidget {
           );
         } else if (state.status == PostStatus.success) {
           final _posts = state.posts;
-          print("conversations $_posts");
-          print("length of conversations = ${_posts.length}");
+          // print("conversations $_posts");
+          // print("length of conversations = ${_posts.length}");
           final _viewerUid =
               context.read<AuthenticationRepository>().currentUser.id;
           return ListView.builder(

@@ -131,7 +131,7 @@ class NavigationBloc extends Bloc<NavigationEvent, NavigationState> {
     assert(event.user.id.isNotEmpty);
     final _userID = event.user.id;
     for (var i = 0; i < 10; i++) {
-      print('trying to grab info from firestore. #$i');
+      // print('trying to grab info from firestore. #$i');
       FirestoreUser? _currUser =
           await _userRepository.getFirestoreUserIfExists(_userID);
       if (_currUser == null) {
