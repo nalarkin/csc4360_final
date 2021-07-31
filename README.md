@@ -1,9 +1,9 @@
 # Academic Advisor 
 
 
-Git Clone: `https://github.com/nalarkin/school_notifier.git`
+Git Clone: `https://github.com/nalarkin/csc4360_final.git`
 
-link to website: `https://github.com/nalarkin/school_notifier`
+link to website: `https://github.com/nalarkin/csc4360_final`
 
 ## Goal of this project
 
