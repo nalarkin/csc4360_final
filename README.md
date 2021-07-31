@@ -1,4 +1,4 @@
-# Academic Advisor 
+# 4360 Final Exam
 
 
 Git Clone: `https://github.com/nalarkin/csc4360_final.git`
