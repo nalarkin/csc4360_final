@@ -61,6 +61,7 @@ class HomePage extends StatelessWidget {
                     eventUID: 'nnieorsnaoientiroeantf983098',
                     title: '5 seconds',
                     posterID: 'posterID',
+                    description: '5 second description',
                     eventStartTime: DateTime.now().add(Duration(seconds: 5)),
                     eventEndTime: DateTime.now().add(Duration(seconds: 10)),
                     eventSubscriptionID: 'eventSubscriptionID');
@@ -82,19 +83,19 @@ class HomePage extends StatelessWidget {
                     eventSubscriptionID: 'eventSubscriptionID');
                 FirestoreEvent event2 = FirestoreEvent(
                     eventUID: 'nnieo323434iroeantf983098',
-                    title: '5 seconds',
-                    description: '5 seconds description',
+                    title: '10 seconds',
+                    description: '10 seconds description',
                     posterID: 'posterID',
-                    eventStartTime: DateTime.now().add(Duration(seconds: 5)),
-                    eventEndTime: DateTime.now().add(Duration(seconds: 10)),
+                    eventStartTime: DateTime.now().add(Duration(seconds: 10)),
+                    eventEndTime: DateTime.now().add(Duration(seconds: 15)),
                     eventSubscriptionID: 'eventSubscriptionID');
                 FirestoreEvent event3 = FirestoreEvent(
                     eventUID: 'nnieor444444iroeantf983098',
-                    title: '8 seconds',
-                    description: '8 seconds description',
+                    title: '18 seconds',
+                    description: '18 seconds description',
                     posterID: 'posterID',
-                    eventStartTime: DateTime.now().add(Duration(seconds: 8)),
-                    eventEndTime: DateTime.now().add(Duration(seconds: 10)),
+                    eventStartTime: DateTime.now().add(Duration(seconds: 18)),
+                    eventEndTime: DateTime.now().add(Duration(seconds: 20)),
                     eventSubscriptionID: 'eventSubscriptionID');
                 context
                     .read<EventRepository>()

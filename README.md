@@ -13,9 +13,16 @@ As part of my final exam, I added additional features to the app to include a `r
 
 * Nathan Larkin
 
-## Video Walkthrough
+## Video Walkthrough 
 
-https://youtu.be/zh6d0PKHbxk
+* https://youtu.be/zh6d0PKHbxk
+
+## Video Demonstrations (part of group project)
+
+*  [Authentication Workflow and Account Creation](https://youtu.be/qKenjBi_GVo)
+*  [Event Creation](https://youtu.be/4ZOKFAq5rmY)
+*  [Proof of Notifications Functionality](https://youtu.be/vr2bYco8tRM)
+*  [Messaging Features](https://youtu.be/SctbDnlAuXw)
 
 ## How to run the App:
 
