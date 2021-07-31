@@ -7,7 +7,6 @@ abstract class NavigationEvent extends Equatable {
 
   @override
   List<Object?> get props => [user];
-  // List<Object?> get props => [teacher];
 }
 
 class NavigationTeacherSignedIn extends NavigationEvent {
@@ -17,9 +16,11 @@ class NavigationTeacherSignedIn extends NavigationEvent {
 class NavigationParentSignedIn extends NavigationEvent {
   const NavigationParentSignedIn(user) : super(user: user);
 }
+
 class NavigationStudentSignedIn extends NavigationEvent {
   const NavigationStudentSignedIn(user) : super(user: user);
 }
+
 class NavigationUserSignedIn extends NavigationEvent {
   const NavigationUserSignedIn(user) : super(user: user);
 }
@@ -36,10 +37,6 @@ class NavigationFailed extends NavigationEvent {
 class NavigationNewParent extends NavigationEvent {
   const NavigationNewParent({required key, user}) : super(user: user, key: key);
 }
-// class NavigationNewParentInfoRequested extends NavigationEvent {
-//   NavigationNewParentInfoRequested({required key, required user})
-//       : super(user: user, key: key);
-// }
 
 class NavigationNewTeacher extends NavigationEvent {
   const NavigationNewTeacher({required key, user})

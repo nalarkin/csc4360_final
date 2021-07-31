@@ -1,16 +1,11 @@
 import 'package:event_repository/event_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:school_notifier/app/app.dart';
 import 'package:school_notifier/calendar/view/calendar_page.dart';
-import 'package:school_notifier/home/home.dart';
 import 'package:school_notifier/authentication/authentication.dart';
-import 'package:school_notifier/login/login.dart';
 import 'package:school_notifier/messages/message.dart';
-import 'package:school_notifier/navigation/navigation.dart';
 import 'package:school_notifier/profile/profile.dart';
 import 'package:school_notifier/subscriptions/subscriptions.dart';
-import 'package:school_notifier/subscriptions/view/add_subscription_page.dart';
 import 'package:school_notifier/widgets/drawer.dart';
 import 'package:users_repository/users_repository.dart';
 
@@ -22,7 +17,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    // final user = context.select((AuthenticationBloc bloc) => bloc.state.user);
+
     FirestoreUser currUser = context.watch<ProfileBloc>().state.user;
     return Scaffold(
       drawer: customDrawer(context),
@@ -47,11 +42,8 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            // Avatar(photo: user.photo),
             const SizedBox(height: 4.0),
-            // Text(user.email ?? '', style: textTheme.headline6),
             const SizedBox(height: 4.0),
-            // Text(user.name ?? '', style: textTheme.headline5),
             const SizedBox(height: 4.0),
             MaterialButton(
               onPressed: () =>
@@ -63,15 +55,6 @@ class HomePage extends StatelessWidget {
                   Navigator.pushNamed(context, ProfilePage.routeName),
               child: const Text('Profile Page'),
             ),
-            // MaterialButton(
-            //   onPressed: () =>
-            //       Navigator.pushNamed(context, EventPage.routeName),
-            //   child: const Text('Event Page'),
-            // ),
-            // MaterialButton(
-            //   onPressed: () => Navigator.pushNamed(context, KeyPage.routeName),
-            //   child: const Text('Key Page'),
-            // ),
             MaterialButton(
               onPressed: () {
                 FirestoreEvent event = FirestoreEvent(
@@ -139,8 +122,6 @@ class HomePage extends StatelessWidget {
                   Navigator.pushNamed(context, SubscriptionPage.routeName),
               child: const Text('Subscription Page'),
             ),
-
-            // debugButton(),
             if (currUser.role == UserRole.teacher ||
                 currUser.role == UserRole.admin)
               MaterialButton(

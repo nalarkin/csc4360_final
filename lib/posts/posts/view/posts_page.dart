@@ -25,40 +25,26 @@ class PostPage extends StatelessWidget {
   static Page page() => const MaterialPage<void>(child: PostPage());
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-        create: (context) => PostBloc(context.read<PostRepository>()),
-        child: _PostView());
-  }
-}
-
-class _PostView extends StatelessWidget {
-  const _PostView({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    // final user = context.select((AuthenticationBloc bloc) => bloc.state.user);
+
     FirestoreUser currUser = context.watch<ProfileBloc>().state.user;
-    final _bloc = context.read<PostBloc>();
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Discussions'),
-        centerTitle: true,
-        actions: <Widget>[
-          IconButton(
-              tooltip: 'create new discussion',
-              key: const Key('postPage_createPost_iconButton'),
-              icon: const Icon(Icons.add),
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return BlocProvider.value(
-                      value: _bloc, child: PostCreatePage());
-                }));
-                // Navigator.pushNamed(context, PostCreatePage.routeName);
-              })
-        ],
-      ),
-      body: PostBuilder(),
-    );
+        appBar: AppBar(
+          title: const Text('Discussions'),
+          centerTitle: true,
+          actions: <Widget>[
+            IconButton(
+                tooltip: 'create new discussion',
+                key: const Key('postPage_createPost_iconButton'),
+                icon: const Icon(Icons.add),
+                onPressed: () {
+                  Navigator.pushNamed(context, PostCreatePage.routeName);
+                })
+          ],
+        ),
+        body: BlocProvider(
+          create: (_) => PostBloc(context.read<PostRepository>()),
+          child: PostBuilder(),
+        ));
   }
 }

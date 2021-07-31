@@ -35,7 +35,6 @@ class PostBuilder extends StatelessWidget {
           return ListView.builder(
             itemCount: _posts.length,
             itemBuilder: (context, index) {
-              // return _buildPostTile(context, _posts[index], index, _viewerUid);
               return _PostTile(post: _posts[index]);
             },
           );
@@ -45,129 +44,6 @@ class PostBuilder extends StatelessWidget {
     );
   }
 }
-
-// class _PostTile extends StatelessWidget {
-//   const _PostTile({Key? key, required this.post, required this.index})
-//       : super(key: key);
-//   final Post post;
-//   final int index;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     final theme = Theme.of(context);
-//     String uid = context.watch<ProfileBloc>().state.user.id;
-//     final votingStatus = getVotingStatusFromPost(post, uid);
-//     final _bloc = context.watch<PostBloc>();
-//     return GestureDetector(
-//       onTap: () {
-//         // context.read<PostBloc>().add(post, index);
-
-//         Navigator.push(context, MaterialPageRoute(builder: (context) {
-//           return BlocProvider.value(
-//               value: _bloc, child: CommentPage(post: post));
-//         }));
-
-//         // Navigator.pushNamed(context, CommentPage.routeName, arguments: post);
-//         // context.read<PostBloc>().add(post, index);
-//       },
-//       child: Container(
-//         color: Colors.grey.shade300,
-//         height: 100,
-//         // padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-//         child: Row(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: [
-//             // _buildAvatar(room),
-//             Expanded(
-//               child: Stack(
-//                 children: [
-//                   Container(
-//                     alignment: Alignment.center,
-//                     child: Column(
-//                       mainAxisAlignment: MainAxisAlignment.center,
-//                       crossAxisAlignment: CrossAxisAlignment.center,
-//                       children: [
-//                         Text(
-//                           post.title,
-//                           maxLines: 1,
-//                           overflow: TextOverflow.ellipsis,
-//                           textAlign: TextAlign.center,
-//                           style: theme.textTheme.bodyText1
-//                               ?.copyWith(color: Colors.black),
-//                         ),
-//                         Text(
-//                           post.authorName,
-//                           maxLines: 1,
-//                           overflow: TextOverflow.ellipsis,
-//                           textAlign: TextAlign.center,
-//                           style: theme.textTheme.bodyText1
-//                               ?.copyWith(color: theme.hintColor),
-//                         ),
-//                       ],
-//                     ),
-//                   ),
-//                   Row(
-//                     children: [
-//                       Column(
-//                         mainAxisSize: MainAxisSize.min,
-//                         children: [
-//                           // Icon(
-//                           //   Icons.arrow_upward_outlined,
-//                           //   size: 30,
-//                           // ),
-//                           // Icon(
-//                           //   Icons.arrow_downward_outlined,
-//                           //   size: 30,
-//                           // ),
-//                           IconButton(
-//                             icon: Icon(
-//                               Icons.keyboard_arrow_up,
-//                               color: votingStatus == VotingStatus.upVoted
-//                                   ? Colors.red
-//                                   : Colors.black,
-//                               // size: 30,
-//                             ),
-//                             onPressed: () {
-//                               context
-//                                   .read<PostBloc>()
-//                                   .add(PostUpvote(post, uid, votingStatus));
-//                             },
-//                           ),
-
-//                           IconButton(
-//                             icon: Icon(
-//                               Icons.keyboard_arrow_down,
-//                               color: votingStatus == VotingStatus.downVoted
-//                                   ? Colors.blue
-//                                   : Colors.black,
-//                               // size: 30,
-//                             ),
-//                             onPressed: () {
-//                               context
-//                                   .read<PostBloc>()
-//                                   .add(PostDownvote(post, uid, votingStatus));
-//                             },
-//                           ),
-//                         ],
-//                       ),
-//                       Container(
-//                         padding: EdgeInsets.all(8),
-//                         child: Text('${post.voteCount}'),
-//                       )
-//                       // Container(
-//                       //     // alignment: Alignment.centerLeft,
-//                       //     child: Icon(Icons.arrow_upward_rounded)),
-//                     ],
-//                   ),
-//                 ],
-//               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
 
 class _PostTile extends StatelessWidget {
   const _PostTile({Key? key, required this.post}) : super(key: key);
@@ -180,12 +56,10 @@ class _PostTile extends StatelessWidget {
     final votingStatus = getVotingStatusFromPost(post, uid);
     final _bloc = context.watch<PostBloc>();
     return Container(
-      // width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
           border: Border(bottom: BorderSide(color: Colors.black, width: 0.5))),
       child: GestureDetector(
         onTap: () {
-
           Navigator.push(context, MaterialPageRoute(builder: (context) {
             return BlocProvider.value(
                 value: _bloc, child: CommentPage(post: post));
@@ -229,7 +103,6 @@ class _PostTile extends StatelessWidget {
                             color: votingStatus == VotingStatus.downVoted
                                 ? Colors.blue
                                 : Colors.black,
-                            // size: 30,
                           ),
                           onPressed: () {
                             context
@@ -242,18 +115,10 @@ class _PostTile extends StatelessWidget {
                   ],
                 ),
               ),
-
-              // Container(
-              //   padding: EdgeInsets.all(8),
-              //   child: Text('${post.voteCount}'),
-              // ),
               Expanded(
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 8, vertical: 0),
-                  // alignment: Alignment.left,
-                  // width: MediaQuery.of(context).size.width * .4,
                   child: Column(
-                    // mainAxisAlignment: MainAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -269,9 +134,6 @@ class _PostTile extends StatelessWidget {
                                   ?.copyWith(color: Colors.black),
                             ),
                           ),
-                          // Expanded(
-                          //   child: Container(),
-                          // ),
                           Container(
                             child: Row(
                               children: [

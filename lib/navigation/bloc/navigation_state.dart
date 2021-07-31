@@ -15,9 +15,7 @@ enum NavigationStatus {
 
 class NavigationState extends Equatable {
   const NavigationState._(
-      {required this.status,
-      this.user = FirestoreUser.empty,
-      this.key});
+      {required this.status, this.user = FirestoreUser.empty, this.key});
 
   final NavigationStatus status;
   final FirestoreUser user;
@@ -32,14 +30,9 @@ class NavigationState extends Equatable {
   const NavigationState.student(FirestoreUser user)
       : this._(status: NavigationStatus.student, user: user);
   const NavigationState.unknown() : this._(status: NavigationStatus.unknown);
-  // const NavigationState.newParent(User user)
-  //     : this._(status: ProfileStatus.newParent, user: user);
 
   const NavigationState.newParent(FirestoreKey key)
       : this._(status: NavigationStatus.newParent, key: key);
-  // const NavigationState.newParentAdditionalInfo(Parent parent)
-  //     : this._(
-  //           status: NavigationStatus.newParentAdditionalInfo, parent: parent);
 
   const NavigationState.newTeacher(FirestoreKey key)
       : this._(status: NavigationStatus.newTeacher, key: key);

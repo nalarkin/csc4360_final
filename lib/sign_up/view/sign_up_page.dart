@@ -22,13 +22,11 @@ class SignUpPage extends StatelessWidget {
         title: const Text('Sign Up'),
         centerTitle: true,
         actions: [
-          // button
           TextButton(
               onPressed: () {
                 context.read<NavigationBloc>().add(NavigationUnknown());
                 Navigator.pushNamedAndRemoveUntil(
                     context, '/', (Route<dynamic> route) => false);
-                // context.read<NavigationBloc>().add(NavigationUnknown());
               },
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,

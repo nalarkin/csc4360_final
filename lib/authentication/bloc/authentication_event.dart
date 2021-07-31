@@ -18,23 +18,3 @@ class AuthenticationUserChanged extends AuthenticationEvent {
   @override
   List<Object> get props => [user];
 }
-
-// class AuthenticationNewParentJoined extends AuthenticationEvent {
-//   @visibleForTesting
-//   const AuthenticationNewParentJoined(this.user);
-
-//   final User parent;
-
-//   @override
-//   List<Object> get props => [parent];
-// }
-
-// class AuthenticationParentAuthenticated extends AuthenticationEvent {
-//   // @visibleForTesting
-//   const AuthenticationParentAuthenticated(this.parent);
-
-//   final Parent parent;
-
-//   @override
-//   List<Object> get props => [parent];
-// }

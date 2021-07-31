@@ -19,11 +19,6 @@ class CommentBuilder extends StatelessWidget {
           return LoadingIndicator();
         } else if (state.status == CommentStatus.success ||
             state.status == CommentStatus.first) {
-          // final _comments = state.comments;
-          // final String _postTitle =
-          //     context.read<CommentBloc>().state.post.title;
-          // final Post _post = context.read<CommentBloc>().state.post;
-
           return Stack(
             children: [
               if (state.status == CommentStatus.first) _EmptyCommentsMessage(),
@@ -36,17 +31,7 @@ class CommentBuilder extends StatelessWidget {
             ],
           );
         }
-        // else if (state.status == CommentStatus.first) {
-        //   return Container(
-        //     child: Stack(children: [
-        //       Container(
-        //         alignment: Alignment.center,
-        //         child: Text('be the first to add a comment'),
-        //       ),
-        //       _BuildNewCommentInputContainer(),
-        //     ]),
-        //   );
-        // }
+
         return Container();
       },
     );
@@ -195,30 +180,6 @@ class _CommentTile extends StatelessWidget {
   }
 }
 
-// Column _buildCommentTile(context, Comment comment, String _uid) {
-//   final theme = Theme.of(context);
-//   return Column(
-//     crossAxisAlignment: comment.authorId == _uid
-//         ? CrossAxisAlignment.end
-//         : CrossAxisAlignment.start,
-//     children: [
-//       GestureDetector(
-//           onTap: () {},
-//           child: Container(
-//             child: Text(comment.content),
-//           )),
-//       Padding(
-//         padding: const EdgeInsets.symmetric(horizontal: 8),
-//         child: Text(
-//           formatDateString(comment.timestamp, DateTime.now()),
-//           style: theme.textTheme.subtitle1
-//               ?.copyWith(color: Colors.grey, fontSize: 10),
-//         ),
-//       ),
-//     ],
-//   );
-// }
-
 class _BuildNewCommentInputContainer extends StatelessWidget {
   _BuildNewCommentInputContainer({Key? key}) : super(key: key);
   final TextEditingController _controller = TextEditingController();
@@ -226,11 +187,6 @@ class _BuildNewCommentInputContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Container(
-      // constraints: BoxConstraints.expand(height: 100),
-
-      // alignment: Alignment.bottomCenter,
-      // color: theme.backgroundColor,
-      // margin: EdgeInsets.symmetric(horizontal: 0, vertical: 10),
       child: Column(
         children: [
           Expanded(child: Container()),
@@ -251,7 +207,6 @@ class _BuildNewCommentInputContainer extends StatelessWidget {
                   ),
                 ),
                 Container(
-                    // color: theme.backgroundColor,
                     child: IconButton(
                         onPressed: () {
                           if (_controller.text.trim().isEmpty) return null;
@@ -379,16 +334,10 @@ class _PostTile extends StatelessWidget {
                             child: Text(
                               post.title,
                               softWrap: true,
-
-                              // maxLines: 1,
-                              // overflow: TextOverflow.ellipsis,
                               style: theme.textTheme.bodyText2
                                   ?.copyWith(color: Colors.black),
                             ),
                           ),
-                          // Expanded(
-                          //   child: Container(),
-                          // ),
                           Container(
                             child: Row(
                               children: [
@@ -469,19 +418,3 @@ class _SpaceBufforForKeyboard extends StatelessWidget {
     ));
   }
 }
-
-// class _EmptyCommentsMessage extends StatelessWidget {
-//   const _EmptyCommentsMessage({Key? key}) : super(key: key);
-//   @override
-//   Widget build(BuildContext context) {
-//     return SliverList(
-//         delegate: SliverChildBuilderDelegate(
-//       (BuildContext context, int index) {
-//         return Container(
-//           height: 100,
-//         );
-//       },
-//       childCount: 1,
-//     ));
-//   }
-// }

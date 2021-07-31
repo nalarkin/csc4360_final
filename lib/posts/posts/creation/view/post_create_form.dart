@@ -77,7 +77,7 @@ class _PostTitleInput extends StatelessWidget {
           decoration: InputDecoration(
             labelText: 'title',
             helperText: '',
-            errorText: state.invalid ? 'invalid title' : null,
+            errorText: state.invalid ? '300 character limit' : null,
           ),
         );
       },
@@ -101,7 +101,7 @@ class _PostContentInput extends StatelessWidget {
           decoration: InputDecoration(
             labelText: 'content',
             helperText: '',
-            errorText: state.invalid ? 'invalid content' : null,
+            errorText: state.invalid ? '300 character limit' : null,
           ),
         );
       },

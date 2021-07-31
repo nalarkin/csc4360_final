@@ -3,12 +3,8 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:school_notifier/authentication/authentication.dart';
-import 'package:school_notifier/home/home.dart';
-import 'package:school_notifier/login/login.dart';
-// import 'package:school_notifier/home/home.dart';
-import 'package:school_notifier/navigation/navigation.dart';
+
 import 'package:school_notifier/profile/profile.dart';
-import 'package:users_repository/users_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:school_notifier/widgets/widgets.dart';
 import 'package:flutter/widgets.dart';
@@ -64,18 +60,13 @@ class ProfileView extends StatelessWidget {
             _FirstNameDisplay(),
             const SizedBox(height: 8.0),
             _LastNameDisplay(),
-            // const SizedBox(height: 8.0),
             _EmailDisplay(),
-            // const SizedBox(height: 8.0),
             _UserRoleDisplay(),
-
             _JoinDateDisplay(),
-            // const SizedBox(height: 40.0),
             _UserSubscriptionisplay(),
             _RelatedChildrenDisplay(),
             _RelatedParentDisplay(),
             const SizedBox(height: 8.0),
-            // _JoinDateDisplay(),
           ],
         ),
       ),
@@ -94,7 +85,6 @@ class _FirstNameDisplay extends StatelessWidget {
             previous.user.firstName != current.user.firstName,
         builder: (context, state) {
           return Container(
-            // color: Colors.red,
             margin: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
             decoration: BoxDecoration(
@@ -137,7 +127,6 @@ class _LastNameDisplay extends StatelessWidget {
             previous.user.lastName != current.user.lastName,
         builder: (context, state) {
           return Container(
-            // color: Colors.blue,
             margin: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
             decoration: BoxDecoration(
@@ -180,7 +169,6 @@ class _EmailDisplay extends StatelessWidget {
             previous.user.email != current.user.email,
         builder: (context, state) {
           return Container(
-            // color: Colors.green,
             margin: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
             decoration: BoxDecoration(
@@ -188,7 +176,6 @@ class _EmailDisplay extends StatelessWidget {
                 color: theme.canvasColor,
                 borderRadius: BorderRadius.all(Radius.circular(20))),
             child: Row(
-              // mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
@@ -225,7 +212,6 @@ class _JoinDateDisplay extends StatelessWidget {
             previous.user.joinDate != current.user.joinDate,
         builder: (context, state) {
           return Container(
-            // color: Colors.yellow,
             margin: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
             decoration: BoxDecoration(
@@ -268,7 +254,6 @@ class _UserRoleDisplay extends StatelessWidget {
             previous.user.role != current.user.role,
         builder: (context, state) {
           return Container(
-            // color: Colors.yellow,
             margin: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
             decoration: BoxDecoration(
@@ -319,18 +304,8 @@ class _UserSubscriptionisplay extends StatelessWidget {
                 border: Border.all(color: theme.accentColor),
                 color: theme.canvasColor,
                 borderRadius: BorderRadius.all(Radius.circular(20))),
-            // color: Colors.yellow,
             child: Column(
               children: [
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.center,
-                //   children: [
-                //     Text(
-                //       'Subscriptions:',
-                //       style: theme.textTheme.bodyText2,
-                //     ),
-                //   ],
-                // ),
                 for (final sub in subs.values)
                   Row(
                     children: [
@@ -375,7 +350,6 @@ class _RelatedChildrenDisplay extends StatelessWidget {
                 border: Border.all(color: theme.accentColor),
                 color: theme.canvasColor,
                 borderRadius: BorderRadius.all(Radius.circular(20))),
-            // color: Colors.yellow,
             child: Column(
               children: [
                 for (final child in children.values)
@@ -422,7 +396,6 @@ class _RelatedParentDisplay extends StatelessWidget {
                 border: Border.all(color: theme.accentColor),
                 color: theme.canvasColor,
                 borderRadius: BorderRadius.all(Radius.circular(20))),
-            // color: Colors.yellow,
             child: Column(
               children: [
                 for (final parent in parents.values)

@@ -23,13 +23,12 @@ class CalendarPage extends StatefulWidget {
 }
 
 class _CalendarPageState extends State<CalendarPage> {
-  // late final ValueNotifier<List<Event>> _selectedEvents;
   LinkedHashMap<DateTime, List<FirestoreEvent>> eventBuilder =
       LinkedHashMap<DateTime, List<FirestoreEvent>>(
     equals: isSameDay,
     hashCode: getHashCode,
   );
-  // Map<DateTime, List<Event>> eventBuilder = Map();
+
   RangeSelectionMode _rangeSelectionMode = RangeSelectionMode.toggledOff;
   late StreamSubscription _eventStreamMap;
   CalendarFormat _calendarFormat = CalendarFormat.month;
@@ -46,15 +45,13 @@ class _CalendarPageState extends State<CalendarPage> {
   TextEditingController _eventController = TextEditingController();
   @override
   void initState() {
-    // eventBuilder = {};
-    // eventBuilder = kEvents;
     _selectedDay = _focusedDate;
     _eventStreamMap = context
         .read<EventRepository>()
         .combineAllStreamsToMap(
             context.read<ProfileBloc>().state.user.classes?.keys.toList() ?? [])
         .listen(updateTheState);
-    //  _selectedEvents = ValueNotifier(_getEventsForDay(_selectedDay!));
+
     super.initState();
   }
 
@@ -68,7 +65,7 @@ class _CalendarPageState extends State<CalendarPage> {
   void dispose() {
     _eventController.dispose();
     _eventStreamMap.cancel();
-    // _selectedEvents.dispose();
+
     super.dispose();
   }
 
@@ -78,7 +75,6 @@ class _CalendarPageState extends State<CalendarPage> {
 
   @override
   Widget build(BuildContext context) {
-    // EventRepository teacherEvent = context.watch<EventRepository>();
     final theme = Theme.of(context);
     final _currDateTime = DateTime.now();
     return Scaffold(
@@ -104,7 +100,6 @@ class _CalendarPageState extends State<CalendarPage> {
               lastDay: DateTime.utc(2030, 10, 30),
               focusedDay: _focusedDate,
               calendarFormat: _calendarFormat,
-              //eventLoader: _selectedEvents,
               selectedDayPredicate: (day) {
                 return isSameDay(_selectedDay, day);
               },
@@ -157,49 +152,7 @@ class _CalendarPageState extends State<CalendarPage> {
           onPressed: () {
             Navigator.pushNamed(context, CalendarAddEventPage.routeName,
                 arguments: _focusedDate);
-          }
-          // showDialog(
-          //     context: context,
-          //     builder: (context) => AlertDialog(
-          //           title: Text("Add Event"),
-          //           content: TextFormField(
-          //             decoration: InputDecoration(hintText: 'Type an event'),
-          //             controller: _eventController,
-          //           ),
-          //           actions: <Widget>[
-          //             TextButton(
-          //                 onPressed: () => Navigator.pop(context, 'Cancel'),
-          //                 child: const Text("Cancel")),
-          //             TextButton(
-          //               child: const Text("Ok"),
-          //               onPressed: () => {
-          //                 if (_eventController.text.isEmpty)
-          //                   {
-          //                     Navigator.pop(context, 'Ok'),
-          //                   }
-          //                 else
-          //                   {
-          //                     if (eventBuilder[_focusedDate] != null)
-          //                       {
-          //                         eventBuilder[_focusedDate]!
-          //                             .add(Event(_eventController.text)),
-          //                         teacherEvent.addNewEvent(newEvent),
-          //                       }
-          //                     else
-          //                       {
-          //                         eventBuilder[_focusedDate] = [
-          //                           Event(_eventController.text)
-          //                         ]
-          //                       }
-          //                   },
-          //                 Navigator.pop(context),
-          //                 _eventController.clear(),
-          //                 setState(() {}),
-          //               },
-          //             )
-          //           ],
-          //         ))
-          ),
+          }),
     );
   }
 }
