@@ -13,7 +13,7 @@ import 'package:flutter/rendering.dart';
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
 void main() async {
-  debugRepaintRainbowEnabled = true;
+  // debugRepagintRainbowEnabled = true;
   Bloc.observer = AppBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
   // await NotificationService().init();
