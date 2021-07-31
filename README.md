@@ -9,11 +9,13 @@ link to website: `https://github.com/nalarkin/school_notifier`
 
 As part of my final exam, I added additional features to the app to include a `reddit-like` message board. Parents, teachers, and students can submit posts and comment on posts. Posts and comments are sorted by the upvote/downvote net positive.
 
-
-
 ## Contributors / Authors:
 
 * Nathan Larkin
+
+## Video Walkthrough
+
+https://youtu.be/zh6d0PKHbxk
 
 ## How to run the App:
 

@@ -17,7 +17,7 @@ class PostCreatePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Create a Post'),
+        title: const Text('Create a Discussion'),
         centerTitle: true,
       ),
       body: Padding(
