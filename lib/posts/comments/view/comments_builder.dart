@@ -397,7 +397,7 @@ class _PostTile extends StatelessWidget {
                                   width: 5,
                                 ),
                                 Icon(
-                                  Icons.chat_outlined,
+                                  Icons.chat_bubble_outline,
                                   size: 18,
                                 ),
                               ],

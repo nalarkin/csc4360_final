@@ -185,6 +185,7 @@ class _PostTile extends StatelessWidget {
           border: Border(bottom: BorderSide(color: Colors.black, width: 0.5))),
       child: GestureDetector(
         onTap: () {
+
           Navigator.push(context, MaterialPageRoute(builder: (context) {
             return BlocProvider.value(
                 value: _bloc, child: CommentPage(post: post));
@@ -252,7 +253,8 @@ class _PostTile extends StatelessWidget {
                   // alignment: Alignment.left,
                   // width: MediaQuery.of(context).size.width * .4,
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    // mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
@@ -261,7 +263,7 @@ class _PostTile extends StatelessWidget {
                           Flexible(
                             child: Text(
                               post.title,
-                              maxLines: 1,
+                              maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                               style: theme.textTheme.bodyText2
                                   ?.copyWith(color: Colors.black),
@@ -275,10 +277,10 @@ class _PostTile extends StatelessWidget {
                               children: [
                                 Text('${post.commentCount}'),
                                 SizedBox(
-                                  width: 5,
+                                  width: 3,
                                 ),
                                 Icon(
-                                  Icons.chat_outlined,
+                                  Icons.chat_bubble_outline,
                                   size: 18,
                                 ),
                               ],
@@ -289,7 +291,7 @@ class _PostTile extends StatelessWidget {
                       Container(
                         child: Text(
                           post.content,
-                          maxLines: 2,
+                          maxLines: 1,
                           softWrap: true,
                           overflow: TextOverflow.ellipsis,
                           style: theme.textTheme.bodyText1
