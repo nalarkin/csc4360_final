@@ -26,7 +26,7 @@ class PostCreatePage extends StatelessWidget {
           create: (_) => CreationCubit(
             context.read<PostRepository>(),
             context.read<ProfileBloc>().state.user,
-            context.read<PostBloc>(),
+            // context.read<PostBloc>(),
           ),
           child: const PostCreateForm(),
         ),

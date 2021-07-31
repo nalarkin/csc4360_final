@@ -12,11 +12,11 @@ class CreationCubit extends Cubit<CreationState> {
   CreationCubit(
     this._postRepository,
     this._user,
-    this._postBloc,
+    // this._postBloc,
   ) : super(const CreationState());
 
   final PostRepository _postRepository;
-  final PostBloc _postBloc;
+  // final PostBloc _postBloc;
   final FirestoreUser _user;
 
   void postTitleChanged(String value) {
@@ -55,19 +55,27 @@ class CreationCubit extends Cubit<CreationState> {
     ));
   }
 
-  void postSubmitted() {
-    Post newPost = Post(
-      authorId: _user.id,
-      authorName: '${_user.firstName} ${_user.lastName}',
-      title: state.postTitle.value.trim(),
-      content: state.postContent.value.trim(),
-      flair: Post.longStringToPostFlair(state.postFlairType.value) ??
-          PostFlair.general,
-      timestamp: DateTime.now(),
-    );
-    // print('created new post $newPost');
+  void postSubmitted() async {
+    if (!state.status.isValidated) return;
+    emit(state.copyWith(status: FormzStatus.submissionInProgress));
+    try {
+      Post newPost = Post(
+        authorId: _user.id,
+        authorName: '${_user.firstName} ${_user.lastName}',
+        title: state.postTitle.value.trim(),
+        content: state.postContent.value.trim(),
+        flair: Post.longStringToPostFlair(state.postFlairType.value) ??
+            PostFlair.general,
+        timestamp: DateTime.now(),
+      );
+      // print('created new post $newPost');
 
-    _postBloc.add(PostCreated(newPost));
+      await _postRepository.addNewPost(newPost);
+      emit(state.copyWith(status: FormzStatus.submissionSuccess));
+    } catch (e) {
+      print(e);
+      emit(state.copyWith(status: FormzStatus.submissionFailure));
+    }
   }
 
   @override

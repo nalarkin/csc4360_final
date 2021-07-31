@@ -195,29 +195,29 @@ class _CommentTile extends StatelessWidget {
   }
 }
 
-Column _buildCommentTile(context, Comment comment, String _uid) {
-  final theme = Theme.of(context);
-  return Column(
-    crossAxisAlignment: comment.authorId == _uid
-        ? CrossAxisAlignment.end
-        : CrossAxisAlignment.start,
-    children: [
-      GestureDetector(
-          onTap: () {},
-          child: Container(
-            child: Text(comment.content),
-          )),
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8),
-        child: Text(
-          formatDateString(comment.timestamp, DateTime.now()),
-          style: theme.textTheme.subtitle1
-              ?.copyWith(color: Colors.grey, fontSize: 10),
-        ),
-      ),
-    ],
-  );
-}
+// Column _buildCommentTile(context, Comment comment, String _uid) {
+//   final theme = Theme.of(context);
+//   return Column(
+//     crossAxisAlignment: comment.authorId == _uid
+//         ? CrossAxisAlignment.end
+//         : CrossAxisAlignment.start,
+//     children: [
+//       GestureDetector(
+//           onTap: () {},
+//           child: Container(
+//             child: Text(comment.content),
+//           )),
+//       Padding(
+//         padding: const EdgeInsets.symmetric(horizontal: 8),
+//         child: Text(
+//           formatDateString(comment.timestamp, DateTime.now()),
+//           style: theme.textTheme.subtitle1
+//               ?.copyWith(color: Colors.grey, fontSize: 10),
+//         ),
+//       ),
+//     ],
+//   );
+// }
 
 class _BuildNewCommentInputContainer extends StatelessWidget {
   _BuildNewCommentInputContainer({Key? key}) : super(key: key);
@@ -378,8 +378,10 @@ class _PostTile extends StatelessWidget {
                           Flexible(
                             child: Text(
                               post.title,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
+                              softWrap: true,
+
+                              // maxLines: 1,
+                              // overflow: TextOverflow.ellipsis,
                               style: theme.textTheme.bodyText2
                                   ?.copyWith(color: Colors.black),
                             ),

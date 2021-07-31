@@ -17,6 +17,7 @@ class PostCreateForm extends StatelessWidget {
     return BlocListener<CreationCubit, CreationState>(
       listener: (context, state) {
         if (state.status.isSubmissionSuccess) {
+          Navigator.pop(context);
         } else if (state.status.isSubmissionFailure) {
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
